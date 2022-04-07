@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="text-center" lang="en" style="background: #191919;color: rgba(0,0,0,0);">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}">
+</head>
+
+<body style="background: #191919;">
+    <div class="res">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top" style="background: rgba(0, 40, 97, 0.48);color: rgb(0,0,0);border-color: rgba(94,18,18,0);">
+            <div class="container-fluid"><a class="navbar-brand" href="#">&nbsp;&nbsp;<img src="{{ url_for('static', filename='img/logo.png') }}" style="height: 42px;margin-bottom: 2px;">&nbsp;</a><button data-bs-toggle="collapse" class="navbar-toggler text-success" data-bs-target="#navcol-1" style="background: rgba(255,255,255,0);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon text-white" style="color: rgba(255,255,255,0);background: rgba(255,255,255,0);"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1"></div>
+                    <ul class="navbar-nav mx-auto midone" style="height: 40px;">
+                        <li class="nav-item" style="height: 10px;margin-top: -20px;">
+                            <h2 style="margin-top: 9%;color: rgb(255,255,255);text-align: center;width: 175%;">Spam Classifier</h2>
+                        </li>
+                    </ul>
+                <div class="collapse navbar-collapse" id="navcol-1"></div>    
+                    <ul class="navbar-nav ress">
+                        <li class="nav-item ress"><a class="nav-link active fs-5 text-start" href="https://github.com/D-z-V" style="color: rgba(255,255,255,0.9);"><i class="fa fa-github fs-4"></i>&nbsp;GitHub&nbsp;</a></li>
+                        <li class="nav-item ress"><a class="nav-link active fs-5 text-start" href="https://d-z-v.github.io/Portfolio-Website/" style="color: rgba(255,255,255,0.9);"><i class="fa fa-code fs-4"></i>&nbsp;Portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h3 class="text-center" style="color: rgb(255,255,255);margin-top: 9%; margin-bottom: 4%;">A ML algorithm to figure out if a email/text is spam or not</h3>
+        <form accept-charset="UTF-8" role="form" method="post" action="{{url_for('home_page')}}">
+            <fieldset>
+                {{ form.message(cols="110", rows="14", placeholder="Leave your message here") }}
+                {%if(status == 0)%}
+                <h4 class="y">{{"Click here to classify"}}</h4>
+                {%elif(status == 1)%}
+                <h4 class="y">{{"Email/text was classified as NOT spam"}}</h4>
+                {%elif(status==2)%}
+                <h4 class="y">{{"Email/text was classified as spam"}}</h4>
+                {% endif %}
+                {{ form.csrf_token }}
+                {{ form.submit(class="button") }}
+            </fieldset>
+        </form>
+    </div>
+    <footer style="background-color: black; color: white; margin-top: 4%; padding: 1%;">
+            <p class="copyright">D3V © 2022 --- ML_Project01</p>
+            <p class="copyright">Made using pandas, numpy, scikitlearn, HTML, CSS, bootstrap and flask</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -21,6 +21,7 @@ input {
 /* From cssbuttons.io */
 .button {
   margin-top: 2%;
+  margin-bottom: 4%
   background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
   background-size: 800% 400%;
   padding: 1em 2em;

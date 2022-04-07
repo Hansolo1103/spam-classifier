@@ -16,7 +16,7 @@
             <div class="container-fluid"><a class="navbar-brand" href="#">&nbsp;&nbsp;<img src="{{ url_for('static', filename='img/logo.png') }}" style="height: 42px;margin-bottom: 2px;">&nbsp;</a><button data-bs-toggle="collapse" class="navbar-toggler text-success" data-bs-target="#navcol-1" style="background: rgba(255,255,255,0);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon text-white" style="color: rgba(255,255,255,0);background: rgba(255,255,255,0);"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1"></div>
                     <ul class="navbar-nav mx-auto midone" style="height: 40px;">
-                        <li class="nav-item" style="height: 10px;margin-top: -20px;">
+                        <li class="nav-item head" style="height: 10px;margin-top: -20px;">
                             <h2 style="margin-top: 9%;color: rgb(255,255,255);text-align: center;width: 175%;">Spam Classifier</h2>
                         </li>
                     </ul>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </nav>
-        <h3 class="text-center" style="color: rgb(255,255,255);margin-top: 9%; margin-bottom: 4%;">A ML algorithm to figure out if a email/text is spam or not</h3>
+        <h3 class="text-center b" style="color: rgb(255,255,255);margin-top: 9%; margin-bottom: 4%;">A ML algorithm to figure out if a email/text is spam or not</h3>
         <form accept-charset="UTF-8" role="form" method="post" action="{{url_for('home_page')}}">
             <fieldset>
                 {{ form.message(cols="110", rows="14", placeholder="Leave your message here") }}

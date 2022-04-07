@@ -3,3 +3,4 @@ Flask
 sklearn
 flask_wtf
 wtforms
+gunicorn

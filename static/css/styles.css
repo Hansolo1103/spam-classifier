@@ -73,3 +73,15 @@ input {
     display: none;
   }
 }
+
+@media screen and (max-width: 590px) {
+  .head{
+    margin-top: -10px !important;
+    margin-right: 23% !important;
+  }
+  .b {
+    margin-top: 14% !important;
+  }
+}
+
+

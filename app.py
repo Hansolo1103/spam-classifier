@@ -34,4 +34,5 @@ def home_page():
     return render_template("index.html", form=form, status=status)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=3000)
+    port = os.environ.get("PORT", 5000)
+    app.run(debug=False, host="0.0.0.0", port=port)

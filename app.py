@@ -3,9 +3,12 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-
+import torch
 from form import TextForm
 from flask import Flask, render_template, abort, request, session
+
+
+PATH = "spam-classifier"
 
 DATA_JSON_FILE = '01_Processing/email-text-data.json'
 data = pd.read_json(DATA_JSON_FILE)
@@ -15,6 +18,9 @@ all_features = vectorizer.fit_transform(data.MESSAGE)
 X_train, X_test, y_train, y_test = train_test_split(all_features, data.CATEGORY, test_size=0.3, random_state=88)
 classifier = MultinomialNB()
 classifier.fit(X_train, y_train)
+torch.save(classifier.state_dict(), PATH)
+classifier.load_state_dict(torch.load(PATH))
+
 
 app = Flask(__name__,template_folder='templates')
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
